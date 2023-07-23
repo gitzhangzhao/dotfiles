@@ -1,0 +1,5 @@
+#!/bin/bash
+
+sudo apt install nodejs
+curl --compressed -o- -L https://yarnpkg.com/install.sh | bash
+# yarn global add copy-paste

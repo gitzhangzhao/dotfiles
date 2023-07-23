@@ -1,0 +1,47 @@
+#!/bin/bash
+# base i3wm environment
+sudo apt install \
+    rofi firefox redshift arandr \
+    zsh trash-cli xclip feh unclutter \
+    lxappearance lightdm-gtk-greeter-settings \
+    mpv mpd cava breeze-cursor-theme \
+    xautolock dunst flameshot \
+
+# usual tools
+sudo apt install \
+    stow traceroute bison ntfs-3g bc \
+    rsync ssh zip unzip gdb \
+    wget curl lsof clangd git \
+    sshfs gpg jq cmake \
+    ufw dos2unix duf file \
+    lshw build-essential \
+    neofetch graphviz netcat-openbsd \
+    man-db manpages-zh imagemagick \
+
+# for compile neovim
+sudo apt install \
+    gettext
+
+# for kernel dev
+# sudo apt install \
+    # linux-headers-amd64
+
+# for cargo build
+sudo apt install \
+    pkg-config libfontconfig1-dev libssl-dev
+
+# for input method
+sudo apt install \
+    im-config fcitx5 fcitx5-rime fcitx5-skin-nord rime-data-luna-pinyin
+
+# for root theme
+sudo apt install \
+    gnome-themes-extra
+
+# for device tree and u-boot
+# sudo apt install device-tree-compiler u-boot-tools
+
+# disabled
+# goldendict
+# poppler-utils 
+# flex

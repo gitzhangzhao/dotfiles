@@ -1,0 +1,10 @@
+#!/bin/bash
+# File              : back_up_WebDAV.sh
+# Author            : zhangzhao <zhangzhao@ihep.ac.cn>
+# Date              : 27.05.2020
+# Last Modified Date: 09.02.2021
+# Last Modified By  : zhangzhao <zhangzhao@ihep.ac.cn>
+NAME=backup_$(date "+%Y%m%d").tar.gz
+cd /home/zhangzhao/Mount
+tar -czf "$NAME" --exclude=../dotfiles/.git  --exclude=../Lab/epics* --exclude=../Lab/mrf* --exclude=../Lab/01_demo_book --exclude=../wanglin ../dotfiles ../Lab
+mv $NAME backup/

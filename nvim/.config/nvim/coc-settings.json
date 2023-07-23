@@ -1,0 +1,34 @@
+{
+  "coc.preferences.messageLevel": "error",
+  "coc.preferences.extensionUpdateCheck": "weekly",
+  "coc.preferences.currentFunctionSymbolAutoUpdate": true,
+
+  "suggest.noselect": true,
+
+  "diagnostic.enableMessage": "never",
+  "diagnostic.virtualText": true,
+  "diagnostic.virtualTextFormat": "  %message",
+  "diagnostic.errorSign": "",
+  "diagnostic.infoSign": "",
+  "diagnostic.warningSign": "",
+  "diagnostic.hintSign": "",
+  "diagnostic.checkCurrentLine": true,
+  "diagnostic.separateRelatedInformationAsDiagnostics": true,
+
+  "inlayHint.display": false,
+
+  "signature.preferShownAbove": false,
+
+  "semanticTokens.enable": true,
+  "signature.target": "float",
+
+  "colors.enable": true,
+  "suggest.floatConfig": { "border": true, "rounded": true },
+  "hover.floatConfig": { "border": true, "rounded": true },
+  "signature.floatConfig": { "border": true, "rounded": true },
+
+  "snippets.ultisnips.pythonPrompt": false,
+
+  "sumneko-lua.enableNvimLuaDev": true,
+
+}

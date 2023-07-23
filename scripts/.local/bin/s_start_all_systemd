@@ -1,0 +1,5 @@
+#!/bin/bash
+sudo systemctl start sshfs-RasPi.service
+sudo systemctl start home-zhangzhao-IHEP.mount
+sudo systemctl start sshfs-OrangePi.service
+sudo systemctl start sshfs-HPServer.service
