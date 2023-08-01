@@ -11,7 +11,7 @@ sudo apt install \
 sudo apt install \
     stow traceroute bison ntfs-3g bc \
     rsync ssh zip unzip gdb \
-    wget curl lsof clangd git \
+    wget curl lsof clangd clang-format git \
     sshfs gpg jq cmake \
     ufw dos2unix duf file \
     lshw build-essential \
