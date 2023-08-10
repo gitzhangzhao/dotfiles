@@ -188,11 +188,11 @@ mode "resize" {
 # client.background #282828
 
 # Gaps
-gaps inner 30
-# gaps outer 0
+gaps inner 25
+# gaps outer 1
 # gaps top 25
 smart_borders on
-smart_gaps on
+# smart_gaps on
 
 # Press $mod+Shift+g to enter the gap mode. Choose o or i for modifying outer/inner gaps. Press one of + / - (in-/decrement for current workspace) or 0 (remove gaps for current workspace). If you also press Shift with these keys, the change will be global for all workspaces.
 set $mode_gaps Gaps: (o) outer, (i) inner
@@ -243,7 +243,8 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ to
 # settings of zhangzhao:                                                     #
 ##############################################################################
 # boot
-exec --no-startup-id feh --bg-fill --noxinerama /home/zhangzhao/.local/wallpaper/wallpaper.jpg
+exec --no-startup-id xrandr --output eDP-1 --off --output HDMI-1 --primary --mode 2560x1440 --pos 0x0 --rotate normal --output DP-1 --off
+exec --no-startup-id feh --bg-fill /home/zhangzhao/.local/wallpaper/wallpaper.jpg
 exec --no-startup-id /home/zhangzhao/.local/bin/picom --experimental-backend
 exec --no-startup-id xset dpms 0 0 0
 exec --no-startup-id xset s noexpose

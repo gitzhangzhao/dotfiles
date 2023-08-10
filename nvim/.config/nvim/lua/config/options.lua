@@ -107,7 +107,7 @@ vim.cmd('syntax enable')
 -- filetype
 vim.cmd [[
 filetype plugin indent on 
-au BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn}   set filetype=markdown
+au BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn},README,Readme,readme,ReadMe   set filetype=markdown
 " autocmd filetype verilog setlocal commentstring=//\ %s
 au BufRead,BufNewFile *.{go}   set filetype=go
 au BufRead,BufNewFile *.{js}   set filetype=javascript
