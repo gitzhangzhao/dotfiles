@@ -292,7 +292,7 @@ assign [class="baidunetdisk"]         $ws6
 
 ##############################################################################
 #assign workspaces
-# workspace 1 output HDMI-2
+workspace 1 output HDMI-1
 # workspace 2 output VGA-2
 # workspace 3 output HDMI-2
 # workspace 4 output HDMI-2

@@ -79,7 +79,7 @@ DISPLAY_WIND_UNIT="no"
 # Thermometer settings ________________________________________________________
 
 # When the thermometer icon turns red
-HOT_TEMP=25
+HOT_TEMP=29
 
 # When the thermometer icon turns blue
 COLD_TEMP=0

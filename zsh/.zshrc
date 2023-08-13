@@ -197,9 +197,9 @@ function unproxy(){
 }
 
 function proxy(){
-    export http_proxy=http://localhost:20172
-    export https_proxy=https://localhost:20172
-    export all_proxy=socks5://localhost:20170
+    export http_proxy="http://user:password@127.0.0.1:20171"
+    export https_proxy="https://user:password@127.0.0.1:20171"
+    export all_proxy="socks5://user:password@127.0.0.1:20170"
     echo -e "\033[32mHTTP Proxy on\033[0m"
 }
 
