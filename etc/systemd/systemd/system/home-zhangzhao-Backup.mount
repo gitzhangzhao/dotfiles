@@ -1,0 +1,12 @@
+[Unit]
+Description=Mount sda for backup
+
+[Mount]
+What=/dev/disk/by-uuid/4a96ef72-dda5-48e3-abec-0a1981f37afe
+Where=/home/zhangzhao/Backup
+Type=ext4
+Options=defaults,rw
+TimeoutSec=15
+
+[Install]
+WantedBy=local-fs.target

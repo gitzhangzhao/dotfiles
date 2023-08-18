@@ -123,71 +123,71 @@ return {
             -- Add (Neo)Vim's native statusline support
             -- NOTE: Please see `:h coc-status` for integrations with external plugins that
 
-            keyset('n', '<F5>', "call CocAction('showIncomingCalls')", opts)
-            vim.cmd [[
-            autocmd BufEnter * call CheckOutline()
-            function! CheckOutline() abort
-            if &filetype ==# 'coctree' && winnr('$') == 1
-                if tabpagenr('$') != 1
-                    close
-                else
-                    bdelete
-                    endif
-                    endif
-                    endfunction
+            -- keyset('n', '<F5>', "call CocAction('showIncomingCalls')", opts)
+            -- vim.cmd [[
+            -- autocmd BufEnter * call CheckOutline()
+            -- function! CheckOutline() abort
+            -- if &filetype ==# 'coctree' && winnr('$') == 1
+            --     if tabpagenr('$') != 1
+            --         close
+            --     else
+            --         bdelete
+            --         endif
+            --         endif
+            --         endfunction
+            --
+            --         nnoremap <silent><nowait> <F5> :call ToggleOutline()<CR>
+            --         function! ToggleOutline() abort
+            --         let winid = coc#window#find('cocViewId', 'OUTLINE')
+            --         if winid == -1
+            --             call CocActionAsync('showOutline', 1)
+            --         else
+            --             call coc#window#close(winid)
+            --             endif
+            --             endfunction
+            --             ]]
 
-                    nnoremap <silent><nowait> <F5> :call ToggleOutline()<CR>
-                    function! ToggleOutline() abort
-                    let winid = coc#window#find('cocViewId', 'OUTLINE')
-                    if winid == -1
-                        call CocActionAsync('showOutline', 1)
-                    else
-                        call coc#window#close(winid)
-                        endif
-                        endfunction
-                        ]]
+            -- coc-clangd
+            keyset('n', '<F12>', '<CMD>CocCommand clangd.switchSourceHeader<CR>', opts)
+        end
+    },
 
-                        -- coc-clangd
-                        keyset('n', '<F12>', '<CMD>CocCommand clangd.switchSourceHeader<CR>', opts)
-                    end
+    {
+        'gelguy/wilder.nvim',
+        event = 'CmdlineEnter',
+        config = function()
+            local wilder = require('wilder')
+            wilder.setup({
+                modes = {':', '/', '?'},
+                next_key = {'<tab>', '<Down>'},
+                previous_key = '<s-tab>'
+            })
+            wilder.set_option('renderer', wilder.popupmenu_renderer(
+            wilder.popupmenu_border_theme({
+                highlights = {
+                    border = 'Normal', -- highlight to use for the border
                 },
+                -- 'single', 'double', 'rounded' or 'solid'
+                -- can also be a list of 8 characters, see :h wilder#popupmenu_border_theme() for more details
+                border = 'rounded',
+                left = {' ', wilder.popupmenu_devicons()},
+                right = {' ', wilder.popupmenu_scrollbar()}
+            })
+            ))
+        end
+    },
 
-                {
-                    'gelguy/wilder.nvim',
-                    event = 'CmdlineEnter',
-                    config = function()
-                        local wilder = require('wilder')
-                        wilder.setup({
-                            modes = {':', '/', '?'},
-                            next_key = {'<tab>', '<Down>'},
-                            previous_key = '<s-tab>'
-                        })
-                        wilder.set_option('renderer', wilder.popupmenu_renderer(
-                        wilder.popupmenu_border_theme({
-                            highlights = {
-                                border = 'Normal', -- highlight to use for the border
-                            },
-                            -- 'single', 'double', 'rounded' or 'solid'
-                            -- can also be a list of 8 characters, see :h wilder#popupmenu_border_theme() for more details
-                            border = 'rounded',
-                            left = {' ', wilder.popupmenu_devicons()},
-                            right = {' ', wilder.popupmenu_scrollbar()}
-                        })
-                        ))
-                    end
-                },
+    {
+        "danymat/neogen",
+        keys = {
+            {'gs', ":lua require('neogen').generate()<CR>"},
+        },
+        dependencies = "nvim-treesitter/nvim-treesitter",
+        config = function()
+            require('neogen').setup()
+        end
+        -- Uncomment next line if you want to follow only stable versions
+        -- version = "*" 
+    },
 
-                {
-                    "danymat/neogen",
-                    keys = {
-                        {'gs', ":lua require('neogen').generate()<CR>"},
-                    },
-                    dependencies = "nvim-treesitter/nvim-treesitter",
-                    config = function()
-                        require('neogen').setup()
-                    end
-                    -- Uncomment next line if you want to follow only stable versions
-                    -- version = "*" 
-                },
-
-            }
+}

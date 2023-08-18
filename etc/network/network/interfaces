@@ -9,10 +9,10 @@ auto lo
 iface lo inet loopback
 
 # # The primary network interface
-# auto enp6s0
-# iface enp6s0 inet static
-#    address 192.168.138.2
-#    netmask 255.255.255.0
+auto enp6s0
+iface enp6s0 inet static
+   address 192.168.138.2
+   netmask 255.255.255.0
    # gateway 192.168.31.1
     
 # auto enxe6c335d32542
@@ -29,10 +29,8 @@ iface lo inet loopback
 #      wpa-ssid timing4
 #      wpa-psk zz950814
 
-auto enx081f715fd34d
- iface enx081f715fd34d inet dhcp
-     wpa-ssid timing4
-     wpa-psk zz950814
+auto enxac7deb65d756
+iface enxac7deb65d756 inet dhcp
 
 # auto wlo1
 #  iface wlo1 inet dhcp

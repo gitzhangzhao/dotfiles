@@ -250,15 +250,18 @@ exec --no-startup-id xset dpms 0 0 0
 exec --no-startup-id xset s noexpose
 exec --no-startup-id xset s 0 0
 exec --no-startup-id unclutter -noevents
-exec --no-startup-id sleep 5; setxkbmap -option caps:escape
 exec --no-startup-id /home/zhangzhao/.local/bin/flashfocus
 exec_always --no-startup-id $HOME/.local/bin/alternating_layouts
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec --no-startup-id redshift -l 39.5:116.2 -t 6000:5400
 exec --no-startup-id xautolock -time 30 -locker "/home/zhangzhao/.local/bin/betterlockscreen -l dim --off 1800"
+exec_always --no-startup-id lsyncd $HOME/.config/lsyncd/lsyncd.conf
+exec --no-startup-id sleep 1; setxkbmap -option caps:escape
+exec --no-startup-id sleep 2; setxkbmap -option caps:escape
+exec --no-startup-id sleep 3; setxkbmap -option caps:escape
+exec --no-startup-id sleep 4; setxkbmap -option caps:escape
+exec --no-startup-id sleep 5; setxkbmap -option caps:escape
 # exec --no-startup-id mpd
-# exec --no-startup-id lsyncd $HOME/.config/lsyncd/lsyncd.conf
-# exec --no-startup-id goldendict
 # exec --no-startup-id synclient TapButton1=1                                                       #设置触摸板可以点击
 # exec --no-startup-id synclient Touchpadoff=1                                                      #默认关闭触摸板
 # exec --no-startup-id sleep 20; xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'                 #将Lock键映射为ESC,延时10s等待X启动完成后设置才有效
@@ -277,6 +280,7 @@ bindsym $mod+p exec --no-startup-id firefox
 bindsym $mod+9 exec --no-startup-id pavucontrol
 bindsym $mod+Shift+f exec --no-startup-id flameshot gui
 bindsym $mod+a exec --no-startup-id flameshot gui -p ~/Share
+bindsym $mod+g exec --no-startup-id goldendict
 # bindsym $mod+g exec --no-startup-id remmina -c ~/.local/share/remmina/group_vnc_rasp_192-168-206-210-9091.remmina
 
 ##############################################################################

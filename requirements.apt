@@ -18,13 +18,17 @@ sudo apt install \
     neofetch graphviz netcat-openbsd \
     man-db manpages-zh imagemagick \
 
+# for share files
+sudo apt install \
+    samba
+
 # for compile neovim
 sudo apt install \
     gettext
 
 # for kernel dev
-# sudo apt install \
-    # linux-headers-amd64
+sudo apt install \
+    linux-headers-amd64
 
 # for cargo build
 sudo apt install \
@@ -37,6 +41,14 @@ sudo apt install \
 # for root theme
 sudo apt install \
     gnome-themes-extra
+
+# for desktop translator
+sudo apt install \
+    goldendict translate-shell
+
+# for backup
+sudo apt install \
+    lsyncd
 
 # for device tree and u-boot
 # sudo apt install device-tree-compiler u-boot-tools
