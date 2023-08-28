@@ -12,7 +12,7 @@ sudo apt install \
     stow traceroute bison ntfs-3g bc \
     rsync ssh zip unzip gdb \
     wget curl lsof clangd clang-format git \
-    sshfs gpg jq cmake \
+    sshfs gpg jq cmake systemd-timesyncd \
     ufw dos2unix duf file \
     lshw build-essential \
     neofetch graphviz netcat-openbsd \

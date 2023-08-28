@@ -127,8 +127,6 @@ export LD_LIBRARY_PATH=$HOME/.local/lib/mylib:$LD_LIBRARY_PATH
 export PATH=$HOME/dotfiles:$HOME/.cargo/bin:$HOME/.local/bin:$HOME/.vim/plugged/fzf/bin:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH
 
 # aliases
-alias csn='remmina -c ~/.local/share/remmina/group_vnc_raspi_192-168-206-210-9091.remmina'
-alias zz='remmina -c ~/.local/share/remmina/group_rdp_win-张昭_192-168-206-210-9092.remmina'
 alias ls='lsd'
 alias l='ls -l'
 alias ll='ls -l'
@@ -159,19 +157,21 @@ alias au='sudo apt update'
 alias c='command cat ~/Share/pipe.txt | clipcopy > /dev/null'
 alias p='clippaste'
 alias h='history'
-alias hr='history|rg'
 alias start='s_mount'
 alias stop='s_umount'
 alias scp='scp -C -p -r'
 alias vim='nvim'
 alias cvim='cd ~/dotfiles/nvim/.config/nvim/'
 alias ssh='TERM=xterm-256color ssh -X'
-# alias pip='pip --break-system-packages'
 alias pip3='pip3 --break-system-packages'
+alias f='fx'
+# alias pip='pip --break-system-packages'
 # alias pgrep='pgrep -a'
 # alias reconfigure='sudo dpkg-reconfigure'
 # alias on='synclient Touchpadoff=0'
 # alias off='synclient Touchpadoff=1'
+# alias csn='remmina -c ~/.local/share/remmina/192-168-206-210-9091.remmina'
+# alias zz='remmina -c ~/.local/share/remmina/192-168-206-210-9092.remmina'
 
 # commands
 ulimit -c 0 > /dev/null 2>&1
@@ -189,6 +189,7 @@ if ! (( $chpwd_functions[(I)chpwd_cdls] )); then
   chpwd_functions+=(chpwd_cdls)
 fi
 
+# proxy
 function unproxy(){
     unset http_proxy
     unset https_proxy

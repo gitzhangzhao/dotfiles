@@ -256,11 +256,11 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec --no-startup-id redshift -l 39.5:116.2 -t 6000:5400
 exec --no-startup-id xautolock -time 30 -locker "/home/zhangzhao/.local/bin/betterlockscreen -l dim --off 1800"
 exec_always --no-startup-id lsyncd $HOME/.config/lsyncd/lsyncd.conf
-exec --no-startup-id sleep 1; setxkbmap -option caps:escape
-exec --no-startup-id sleep 2; setxkbmap -option caps:escape
-exec --no-startup-id sleep 3; setxkbmap -option caps:escape
-exec --no-startup-id sleep 4; setxkbmap -option caps:escape
-exec --no-startup-id sleep 5; setxkbmap -option caps:escape
+# exec --no-startup-id sleep 1; setxkbmap -option caps:escape
+# exec --no-startup-id sleep 2; setxkbmap -option caps:escape
+# exec --no-startup-id sleep 3; setxkbmap -option caps:escape
+# exec --no-startup-id sleep 4; setxkbmap -option caps:escape
+# exec --no-startup-id sleep 5; setxkbmap -option caps:escape
 # exec --no-startup-id mpd
 # exec --no-startup-id synclient TapButton1=1                                                       #设置触摸板可以点击
 # exec --no-startup-id synclient Touchpadoff=1                                                      #默认关闭触摸板
@@ -288,9 +288,7 @@ bindsym $mod+g exec --no-startup-id goldendict
 ##############################################################################
 #assign windows
 assign [class="Firefox"]              $ws2
-assign [class="netease-cloud-music"]  $ws3
-assign [class="remmina"]              $ws4
-assign [class="Zotero"]               $ws5
+assign [class="Zotero"]               $ws3
 assign [class="baidunetdisk"]         $ws6
 ##############################################################################
 
