@@ -188,7 +188,7 @@ mode "resize" {
 # client.background #282828
 
 # Gaps
-gaps inner 25
+gaps inner 15
 # gaps outer 1
 # gaps top 25
 smart_borders on
@@ -251,10 +251,10 @@ exec --no-startup-id xset s noexpose
 exec --no-startup-id xset s 0 0
 exec --no-startup-id unclutter -noevents
 exec --no-startup-id /home/zhangzhao/.local/bin/flashfocus
+exec --no-startup-id redshift -l 39.5:116.2 -t 6000:5400
 exec_always --no-startup-id $HOME/.local/bin/alternating_layouts
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-exec --no-startup-id redshift -l 39.5:116.2 -t 6000:5400
-exec --no-startup-id xautolock -time 30 -locker "/home/zhangzhao/.local/bin/betterlockscreen -l dim --off 1800"
+exec_always --no-startup-id xautolock -time 120 -locker "/home/zhangzhao/.local/bin/betterlockscreen -l dim --off 1200"
 exec_always --no-startup-id lsyncd $HOME/.config/lsyncd/lsyncd.conf
 # exec --no-startup-id sleep 1; setxkbmap -option caps:escape
 # exec --no-startup-id sleep 2; setxkbmap -option caps:escape
@@ -288,7 +288,8 @@ bindsym $mod+g exec --no-startup-id goldendict
 ##############################################################################
 #assign windows
 assign [class="Firefox"]              $ws2
-assign [class="Zotero"]               $ws3
+assign [class="Foxit Reader"]         $ws3
+assign [class="Xmind"]                $ws4
 assign [class="baidunetdisk"]         $ws6
 ##############################################################################
 

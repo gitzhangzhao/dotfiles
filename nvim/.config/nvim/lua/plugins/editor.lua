@@ -13,7 +13,7 @@ return {
                     {open = '`', close = '`'},
                     {open = '(', close = ')'},
                     {open = '[', close = ']'},
-                    {open = '{', close = '}'}
+                    {open = '{', close = '}'},
                 }
             }
         end,
@@ -275,6 +275,7 @@ return {
             vmap ( S)
             vmap } S}
             vmap { S}
+            vmap ` S`
             ]]
         end
     },

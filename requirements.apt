@@ -50,6 +50,11 @@ sudo apt install \
 sudo apt install \
     lsyncd
 
+# for development
+sudo apt install \
+# read ddr spd info
+    i2c-tools \     
+
 # for device tree and u-boot
 # sudo apt install device-tree-compiler u-boot-tools
 

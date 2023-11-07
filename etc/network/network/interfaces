@@ -17,10 +17,14 @@ iface enp6s0 inet static
 auto enxac7deb65d756
 iface enxac7deb65d756 inet dhcp
 
+# allow-hotplug wlp7s0
+allow-hotplug enp6s0
+allow-hotplug enxac7deb65d756
+
 # auto enxe6c335d32542
 # iface enxe6c335d32542 inet dhcp
-    # address 192.168.1.1
-    # netmask 255.255.255.0
+#     address 192.168.1.1
+#     netmask 255.255.255.0
 
 #auto wlo1
 #iface wlo1 inet dhcp
