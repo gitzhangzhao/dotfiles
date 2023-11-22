@@ -5,7 +5,7 @@ sudo apt install \
     zsh trash-cli xclip feh unclutter \
     lxappearance lightdm-gtk-greeter-settings \
     mpv mpd cava breeze-cursor-theme \
-    xautolock dunst flameshot \
+    xautolock dunst flameshot brightnessctl \
 
 # usual tools
 sudo apt install \
@@ -53,7 +53,7 @@ sudo apt install \
 # for development
 sudo apt install \
 # read ddr spd info
-    i2c-tools \     
+#    i2c-tools \     
 
 # for device tree and u-boot
 # sudo apt install device-tree-compiler u-boot-tools

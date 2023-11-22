@@ -1,4 +1,5 @@
 {
+  "npm.binPath": "yarn",
   "coc.preferences.messageLevel": "error",
   "coc.preferences.extensionUpdateCheck": "weekly",
   "coc.preferences.currentFunctionSymbolAutoUpdate": true,
