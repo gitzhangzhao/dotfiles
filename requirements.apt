@@ -61,6 +61,10 @@ sudo apt install \
 # for ripgrep-all
 sudo apt install pandoc poppler-utils
 
+# for linux kernel build
+sudo apt install flex libelf-dev libncurses-dev lsb-release debhelper dwarves
+
+
 # disabled
 # goldendict
 # poppler-utils 
