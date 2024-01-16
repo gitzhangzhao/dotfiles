@@ -10,8 +10,7 @@ return {
         },
         config = function()
             -- coc plugins
-            vim.g.coc_global_extensions = { 'coc-clangd', 'coc-snippets', 'coc-json', 'coc-sh', 'coc-prettier', 'coc-tabnine',
-            'coc-vimlsp', 'coc-sumneko-lua' }
+            vim.g.coc_global_extensions = { 'coc-clangd', 'coc-snippets', 'coc-json', 'coc-sh', 'coc-prettier', 'coc-tabnine', 'coc-vimlsp', 'coc-sumneko-lua', 'coc-pairs', 'coc-pyright' }
             local keyset = vim.keymap.set
 
             -- Autocomplete

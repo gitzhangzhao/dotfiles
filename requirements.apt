@@ -1,4 +1,5 @@
 #!/bin/bash
+
 # base i3wm environment
 sudo apt install \
     rofi firefox redshift arandr \
@@ -27,8 +28,8 @@ sudo apt install \
     gettext
 
 # for kernel dev
-sudo apt install \
-    linux-headers-amd64
+# sudo apt install \
+#     linux-headers-amd64
 
 # for cargo build
 sudo apt install \
@@ -36,7 +37,7 @@ sudo apt install \
 
 # for input method
 sudo apt install \
-    im-config fcitx5 fcitx5-rime fcitx5-skin-nord rime-data-luna-pinyin
+    im-config fcitx5 fcitx5-config-qt fcitx5-rime fcitx5-skin-nord rime-data-luna-pinyin
 
 # for root theme
 sudo apt install \
@@ -64,8 +65,5 @@ sudo apt install pandoc poppler-utils
 # for linux kernel build
 sudo apt install flex libelf-dev libncurses-dev lsb-release debhelper dwarves
 
-
-# disabled
-# goldendict
-# poppler-utils 
-# flex
+# for calculator
+sudo apt install bcal

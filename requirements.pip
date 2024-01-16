@@ -1,3 +1,4 @@
 #!/bin/bash
 pip install flashfocus --break-system-packages
 pip install pynvim --break-system-packages
+pip install pylint --break-system-packages
