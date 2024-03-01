@@ -210,7 +210,7 @@ return {
             require('pretty-fold').setup({
                 sections = {
                     left = {
-                        'content', ' ', '',
+                        'content', '    ', ' ',
                     },
                     right = {
                         ' ', 'number_of_folded_lines', ': ', 'percentage', ' ',

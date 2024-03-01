@@ -5,6 +5,7 @@
 deb http://ftp.cn.debian.org/debian/ sid main non-free contrib non-free-firmware
 deb-src http://ftp.cn.debian.org/debian/ sid main non-free contrib non-free-firmware
 
+# deb http://ftp.cn.debian.org/debian/ bookworm main non-free contrib non-free-firmware
 deb [arch=amd64 signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian bookworm stable
 # deb [arch=amd64] https://download.docker.com/linux/debian/ bullseye stable
 # deb [arch=amd64] https://packages.microsoft.com/repos/edge stable main

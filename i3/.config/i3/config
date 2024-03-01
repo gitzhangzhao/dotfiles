@@ -287,7 +287,7 @@ bindsym $mod+g exec --no-startup-id goldendict
 
 ##############################################################################
 #assign windows
-assign [class="Firefox"]              $ws2
+assign [class="firefox"]      $ws2
 assign [class="Foxit Reader"]         $ws3
 assign [class="Xmind"]                $ws4
 assign [class="baidunetdisk"]         $ws6

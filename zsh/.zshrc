@@ -124,7 +124,8 @@ export BAT_THEME=Nord
 export HISTSIZE=500000
 export SAVEHIST=500000
 export LD_LIBRARY_PATH=$HOME/.local/lib/mylib:$LD_LIBRARY_PATH
-export PATH=$HOME/dotfiles:$HOME/.cargo/bin:$HOME/.local/bin:$HOME/.vim/plugged/fzf/bin:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH
+export PATH=$HOME/dotfiles:$HOME/.cargo/bin:$HOME/.local/bin:$HOME/.vim/plugged/fzf/bin:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:/usr/local/cuda-11.8/bin:$PATH
+export LD_LIBRARY_PATH=/usr/local/cuda-11.8/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
 
 # aliases
 alias ls='lsd'
@@ -144,16 +145,16 @@ alias df='duf'
 alias rg='rg --hidden -L'
 alias diff='difft'
 alias al='apt list --upgradable'
-alias ap='sudo apt purge'
+alias ap='TERM=xterm sudo apt purge'
 alias search='sudo apt search -n'
 alias cp='cp_with_progress -Rg'
 alias mv='mv_with_progress -g'
 alias hexdump='hexyl'
 alias ip='ip --color'
 alias ps='procs'
-alias ag='sudo apt dist-upgrade'
-alias aa='sudo apt autopurge'
-alias au='sudo apt update'
+alias ag='TERM=xterm sudo apt dist-upgrade'
+alias aa='TERM=xterm sudo apt autopurge'
+alias au='TERM=xterm sudo apt update'
 alias c='command cat ~/Share/pipe.txt | clipcopy > /dev/null'
 alias p='clippaste'
 alias h='history'
@@ -163,7 +164,7 @@ alias scp='scp -C -p -r'
 alias vim='nvim'
 alias cvim='cd ~/dotfiles/nvim/.config/nvim/'
 alias ssh='TERM=xterm-256color ssh -X'
-alias pip3='pip3 --break-system-packages'
+# alias pip3='pip3 --break-system-packages'
 alias f='fx'
 alias pdf='FoxitReader'
 # alias pip='pip --break-system-packages'
