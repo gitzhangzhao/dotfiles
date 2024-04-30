@@ -60,7 +60,7 @@ sudo apt install \
 # sudo apt install device-tree-compiler u-boot-tools
 
 # for ripgrep-all
-sudo apt install pandoc poppler-utils
+# sudo apt install pandoc poppler-utils
 
 # for linux kernel build
 sudo apt install flex libelf-dev libncurses-dev lsb-release debhelper dwarves

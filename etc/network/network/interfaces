@@ -5,22 +5,22 @@
 source /etc/network/interfaces.d/*
 
 # The loopback network interface
+# allow-hotplug enxac7deb65d756
+allow-hotplug enp6s0
+
 auto lo
 iface lo inet loopback
 
-# office
-auto enp6s0
-iface enp6s0 inet static
-   address 192.168.137.2
-   netmask 255.255.255.0
+# external network
+# auto enxac7deb65d756
+# iface enxac7deb65d756 inet dhcp
 
-auto enxac7deb65d756
-iface enxac7deb65d756 inet dhcp
+# iei internal network
+auto enp6s0
+iface enp6s0 inet dhcp
 
 # allow-hotplug wlp7s0
-allow-hotplug enp6s0
-allow-hotplug enxac7deb65d756
-allow-hotplug wlp7s0
+# allow-hotplug wlp7s0
 
 # auto enxe6c335d32542
 # iface enxe6c335d32542 inet dhcp
@@ -31,10 +31,10 @@ allow-hotplug wlp7s0
 #iface wlo1 inet dhcp
 #     wireless-essid Ace
 
-auto wlp7s0
- iface wlp7s0 inet dhcp
-     wpa-ssid IEIsystem
-     wpa-psk 123456wp
+# auto wlp7s0
+ # iface wlp7s0 inet dhcp
+     # wpa-ssid IEIsystem
+     # wpa-psk 123456wp
 
 # auto wlo1
 #  iface wlo1 inet dhcp

@@ -56,7 +56,7 @@ shape = "Underline"
 TERM = "alacritty"
 
 [font]
-size = 13
+size = 15
 
 [font.bold]
 family = "CaskaydiaCove Nerd Font"
