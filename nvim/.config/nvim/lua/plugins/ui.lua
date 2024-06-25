@@ -1,5 +1,4 @@
 return {
-
     {
         "goolord/alpha-nvim",
         event = "BufWinEnter",
@@ -114,10 +113,15 @@ return {
         {
             'lukas-reineke/indent-blankline.nvim',
             event = 'BufReadPost',
+            main = 'ibl',
+            opts = {},
             config = function()
-                -- vim.cmd [[highlight IndentBlanklineContextStart guifg=#C678DD gui=underline]]
-                -- vim.cmd [[highlight IndentBlanklineContextChar guifg=#C678DD gui=nocombine]]
-                require("ibl").setup()
+                require("ibl").setup({
+                    scope={
+                        show_start=false,
+                        show_end=true,
+                    }
+                })
             end
         },
 
@@ -289,7 +293,8 @@ return {
         },
 
         {
-            "feline-nvim/feline.nvim",
+            -- "feline-nvim/feline.nvim",
+            "freddiehaddad/feline.nvim",
             event = 'BufReadPre',
             dependencies = 'nvim-tree/nvim-web-devicons',
             config = function()

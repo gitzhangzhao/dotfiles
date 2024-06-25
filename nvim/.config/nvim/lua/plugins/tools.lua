@@ -127,7 +127,7 @@ return {
 
     {
         'folke/trouble.nvim',
-        keys = {{'<F7>', '<cmd>TroubleToggle loclist<CR>'}},
+        keys = {{'<F7>', '<cmd>Trouble loclist toggle<CR>'}},
         config = function()
             vim.api.nvim_create_autocmd('User',{
                     pattern = 'CocNvimInit',

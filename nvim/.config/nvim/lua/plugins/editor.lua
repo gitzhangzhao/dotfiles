@@ -81,11 +81,11 @@ return {
 
     {
         'karb94/neoscroll.nvim',
-        keys = {'<C-k>', '<C-j>', 'zt', 'zz', 'zb', {'<C-j>', mode = 'x'}, {'<C-k>', mode = 'x'}},
+        keys = {'<C-k>', '<C-j>', {'<C-j>', mode = 'x'}, {'<C-k>', mode = 'x'}},
         config = function()
             require('neoscroll').setup({
                 -- All these keys will be mapped to their corresponding default scrolling animation
-                mappings = {'<C-k>', '<C-j>', 'zt', 'zz', 'zb'},
+                mappings = {},
                 hide_cursor = true,          -- Hide cursor while scrolling
                 stop_eof = true,             -- Stop at <EOF> when scrolling downwards
                 respect_scrolloff = false,   -- Stop scrolling when the cursor reaches the scrolloff margin of the file
@@ -95,22 +95,22 @@ return {
                 post_hook = nil,             -- Function to run after the scrolling animation ends
                 performance_mode = false,    -- Disable "Performance Mode" on all buffers.
             })
-            local t = {}
-            -- Syntax: t[keys] = {function, {function arguments}}
-            t['<C-k>'] = {'scroll', {'-vim.wo.scroll', 'true', '250'}}
-            t['<C-j>'] = {'scroll', { 'vim.wo.scroll', 'true', '250'}}
-            t['zt']    = {'zt', {'250'}}
-            t['zz']    = {'zz', {'250'}}
-            t['zb']    = {'zb', {'250'}}
-
-            require('neoscroll.config').set_mappings(t)
+            neoscroll = require('neoscroll')
+            local keymap = {
+                ["<C-k>"] = function() neoscroll.ctrl_u({ duration = 250 }) end;
+                ["<C-j>"] = function() neoscroll.ctrl_d({ duration = 250 }) end;
+            }
+            local modes = { 'n', 'v', 'x' }
+            for key, func in pairs(keymap) do
+                vim.keymap.set(modes, key, func)
+            end
         end
     },
 
-    {
-        'nvim-treesitter/nvim-treesitter',
-        lazy = false,
-        build = ':TSUpdate',
+        {
+            'nvim-treesitter/nvim-treesitter',
+            lazy = false,
+            build = ':TSUpdate',
         config = function()
             require'nvim-treesitter.configs'.setup {
                 ensure_installed = {"vim", "lua", "c", "make", "markdown", "json", "diff", "cpp", "bash", "verilog", "latex" },
@@ -207,39 +207,7 @@ return {
         'anuvyklack/pretty-fold.nvim',
         event = 'VeryLazy',
         config = function()
-            require('pretty-fold').setup({
-                sections = {
-                    left = {
-                        'content', '    ', ' ',
-                    },
-                    right = {
-                        ' ', 'number_of_folded_lines', ': ', 'percentage', ' ',
-                        function(config) return config.fill_char:rep(2) end
-                    }
-                },
-                fill_char = ' ',
-                remove_fold_markers = true,
-                -- Keep the indentation of the content of the fold string.
-                keep_indentation = true,
-                -- Possible values:
-                -- "delete" : Delete all comment signs from the fold string.
-                -- "spaces" : Replace all comment signs with equal number of spaces.
-                -- false    : Do nothing with comment signs.
-                process_comment_signs = 'spaces',
-                -- Comment signs additional to the value of `&commentstring` option.
-                comment_signs = {},
-                -- List of patterns that will be removed from content foldtext section.
-                stop_words = {
-                    '@brief%s*', -- (for C++) Remove '@brief' and all spaces after.
-                },
-                    add_close_pattern = true, -- true, 'last_line' or false
-                    matchup_patterns = {
-                        {  '{', '}' },
-                        { '%(', ')' }, -- % to escape lua pattern char
-                        { '%[', ']' }, -- % to escape lua pattern char
-                    },
-                    ft_ignore = { 'neorg' },
-            })
+            require('pretty-fold').setup({})
         end
     },
 
@@ -391,6 +359,8 @@ return {
             vim.keymap.set('v', 'K', ':MoveBlock(-1)<CR>', opts)
             vim.keymap.set('v', 'H', ':MoveHBlock(-1)<CR>', opts)
             vim.keymap.set('v', 'L', ':MoveHBlock(1)<CR>', opts)
+
+            require('move').setup()
         end
     },
 

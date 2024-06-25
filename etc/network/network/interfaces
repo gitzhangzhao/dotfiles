@@ -12,29 +12,29 @@ auto lo
 iface lo inet loopback
 
 # external network
-# auto enxac7deb65d756
-# iface enxac7deb65d756 inet dhcp
+auto enxac7deb65d756
+iface enxac7deb65d756 inet dhcp
 
 # iei internal network
+# auto enp6s0
+# iface enp6s0 inet dhcp
+
+# allow-hotplug wlp7s0
+# allow-hotplug wlp7s0
+
 auto enp6s0
-iface enp6s0 inet dhcp
-
-# allow-hotplug wlp7s0
-# allow-hotplug wlp7s0
-
-# auto enxe6c335d32542
-# iface enxe6c335d32542 inet dhcp
-#     address 192.168.1.1
-#     netmask 255.255.255.0
+iface enp6s0 inet static
+    address 192.168.137.2
+    netmask 255.255.255.0
 
 #auto wlo1
 #iface wlo1 inet dhcp
 #     wireless-essid Ace
 
-# auto wlp7s0
- # iface wlp7s0 inet dhcp
-     # wpa-ssid IEIsystem
-     # wpa-psk 123456wp
+auto wlp7s0
+ iface wlp7s0 inet dhcp
+     wpa-ssid timing5
+     wpa-psk zz950814
 
 # auto wlo1
 #  iface wlo1 inet dhcp
