@@ -249,7 +249,7 @@ exec --no-startup-id /home/zhangzhao/.local/bin/picom --experimental-backend
 exec --no-startup-id xset dpms 0 0 0
 exec --no-startup-id xset s noexpose
 exec --no-startup-id xset s 0 0
-exec --no-startup-id unclutter -noevents
+# exec --no-startup-id unclutter -noevents
 exec --no-startup-id /home/zhangzhao/.local/bin/flashfocus
 exec --no-startup-id redshift -l 39.5:116.2 -t 6000:5400
 exec_always --no-startup-id $HOME/.local/bin/alternating_layouts
