@@ -45,3 +45,5 @@ vim.cmd [[
     nnoremap <c-c> "+Y
     vnoremap <c-c> "+y
 ]]
+
+vim.keymap.set('v', '/', 'y/<C-R>"<CR>', opt )

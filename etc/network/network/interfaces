@@ -9,6 +9,7 @@ source /etc/network/interfaces.d/*
 allow-hotplug enp6s0
 
 auto lo
+allow-hotplug wlp7s0
 iface lo inet loopback
 
 # external network
@@ -19,7 +20,6 @@ iface lo inet loopback
 # auto enp6s0
 # iface enp6s0 inet dhcp
 
-# allow-hotplug wlp7s0
 # allow-hotplug wlp7s0
 
 auto enp6s0
@@ -33,7 +33,7 @@ iface enp6s0 inet static
 
 auto wlp7s0
  iface wlp7s0 inet dhcp
-     wpa-ssid iPhone
+     wpa-ssid timing4
      wpa-psk zz950814
 
 # auto wlo1
