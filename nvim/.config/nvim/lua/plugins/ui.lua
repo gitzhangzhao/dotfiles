@@ -281,12 +281,13 @@ return {
         {
             'danilamihailov/beacon.nvim',
             event = 'BufReadPost',
-            config = function()
-                vim.cmd [[highlight Beacon guibg=pink]]
-                vim.g.beacon_size = 200
-                vim.g.beacon_shrink = 0
-            end
-
+            opts = {
+                enable = true,
+                speed = 2,
+                width = 10,
+                highlight = { bg = 'pink' },
+                min_jump = 0
+            }
         },
 
         {
@@ -302,3 +303,4 @@ return {
         },
 
     }
+

@@ -127,13 +127,13 @@ return {
 
     {
         'folke/trouble.nvim',
-        keys = {{'<F7>', '<cmd>Trouble loclist toggle<CR>'}},
+        keys = {{'<F7>', "<cmd>call coc#rpc#request('fillDiagnostics', [bufnr('%')])<CR><cmd>Trouble loclist<CR>"}},
         config = function()
-            vim.api.nvim_create_autocmd('User',{
-                    pattern = 'CocNvimInit',
-                    command = "call coc#rpc#request('fillDiagnostics', [bufnr('%')])",
-                    desc = 'init loc list for trouble'
-                })
+            -- vim.api.nvim_create_autocmd('User',{
+            --         pattern = 'CocNvimInit',
+            --         command = "call coc#rpc#request('fillDiagnostics', [bufnr('%')])",
+            --         desc = 'init loc list for trouble'
+            -- })
                 require('trouble').setup{
                     signs = {
                         -- icons / text used for a diagnostic
