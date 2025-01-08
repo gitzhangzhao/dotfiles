@@ -59,20 +59,21 @@ TERM = "alacritty"
 size = 15
 
 [font.bold]
-family = "CaskaydiaCove Nerd Font"
+# family = "CaskaydiaCove Nerd Font"
+family = "Maple Mono"
 style = "Bold"
 
 [font.bold_italic]
-family = "CaskaydiaCove Nerd Font"
+family = "Maple Mono"
 style = "Bold Italic"
 
 [font.italic]
-family = "CaskaydiaCove Nerd Font"
-style = "Italic"
+family = "Maple Mono"
+style = "Medium Italic"
 
 [font.normal]
-family = "CaskaydiaCove Nerd Font"
-style = "Regular"
+family = "Maple Mono"
+style = "Medium"
 
 [[keyboard.bindings]]
 action = "Paste"
