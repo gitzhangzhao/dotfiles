@@ -3,7 +3,7 @@
 # base i3wm environment
 sudo apt install \
     rofi firefox redshift arandr \
-    zsh trash-cli xclip feh unclutter \
+    zsh trash-cli xclip feh \
     lxappearance lightdm-gtk-greeter-settings \
     mpv mpd cava breeze-cursor-theme \
     xautolock dunst flameshot brightnessctl \

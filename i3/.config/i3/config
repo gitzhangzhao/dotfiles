@@ -244,12 +244,12 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ to
 ##############################################################################
 # boot
 exec --no-startup-id xrandr --output eDP-1 --off --output HDMI-1 --primary --mode 2560x1440 --pos 0x0 --rotate normal --output DP-1 --off
-exec --no-startup-id feh --bg-fill /home/zhangzhao/.local/wallpaper/wallpaper.jpg
-exec --no-startup-id /home/zhangzhao/.local/bin/picom --experimental-backend
+exec --no-startup-id /home/zhangzhao/.local/bin/picom
 exec --no-startup-id xset dpms 0 0 0
 exec --no-startup-id xset s noexpose
 exec --no-startup-id xset s 0 0
 # exec --no-startup-id unclutter -noevents
+exec --no-startup-id feh --bg-fill /home/zhangzhao/.local/wallpaper/wallpaper.jpg
 exec --no-startup-id /home/zhangzhao/.local/bin/flashfocus
 exec --no-startup-id redshift -l 39.5:116.2 -t 6000:5400
 exec_always --no-startup-id $HOME/.local/bin/alternating_layouts
