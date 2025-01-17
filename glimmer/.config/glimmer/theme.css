@@ -1,0 +1,58 @@
+@keyframes example {
+  0% {
+    border-color: #81a1c1;
+    border-width: 0px;
+  }
+  5% {
+    border-width: 5px;
+    /* border-top-width: 5px; */
+    border-color: #81a1c1;
+  }
+  90% {
+    /* border-top-width: 5px; */
+    border-color: #81a1c1;
+  }
+  95% {
+    /* border-top-width: 5px; */
+    border-color: #81a1c1;
+  }
+
+  100% {
+    border-color: transparent;
+  }
+}
+
+#box {
+  animation-fill-mode: both;
+  border: 2px solid transparent;
+}
+
+/* @keyframes label { */
+/*   0% { */
+/*     opacity: 0; */
+/*   } */
+/*   10% { */
+/*     opacity: 1; */
+/*   } */
+/*   85% { */
+/*     opacity: 1; */
+/*   } */
+/*   95% { */
+/*     opacity: 0; */
+/*   } */
+/* } */
+/**/
+
+.animate #box {
+  animation: example 1.5s ease;
+}
+
+#label {
+  /* color: black; */
+  opacity: 0;
+  /* margin-left: 5px; */
+}
+
+/* .animate #label { */
+/*   animation: label 1.5s ease; */
+/* } */

@@ -98,10 +98,6 @@ action = "Copy"
 key = "C"
 mods = "Control|Shift"
 
-[[mouse.bindings]]
-action = "PasteSelection"
-mouse = "Middle"
-
 [scrolling]
 history = 100000
 multiplier = 5
@@ -116,3 +112,6 @@ y = 4
 
 [mouse]
 hide_when_typing = true
+bindings = [
+{ mouse = "Right", action = "PasteSelection" }
+]

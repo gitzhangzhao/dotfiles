@@ -248,10 +248,9 @@ exec --no-startup-id /home/zhangzhao/.local/bin/picom
 exec --no-startup-id xset dpms 0 0 0
 exec --no-startup-id xset s noexpose
 exec --no-startup-id xset s 0 0
-# exec --no-startup-id unclutter -noevents
 exec --no-startup-id feh --bg-fill /home/zhangzhao/.local/wallpaper/wallpaper.jpg
-exec --no-startup-id /home/zhangzhao/.local/bin/flashfocus
 exec --no-startup-id redshift -l 39.5:116.2 -t 6000:5400
+exec --no-startup-id /home/zhangzhao/.local/bin/glimmer --styles=/home/zhangzhao/.config/glimmer/theme.css
 exec_always --no-startup-id $HOME/.local/bin/alternating_layouts
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id xautolock -time 120 -locker "/home/zhangzhao/.local/bin/betterlockscreen -l dim --off 3800"
