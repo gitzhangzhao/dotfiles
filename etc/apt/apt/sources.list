@@ -2,8 +2,8 @@
 #deb http://mirrors.163.com/debian/ testing main non-free contrib
 #deb-src http://mirrors.163.com/debian/ testing main non-free contrib
 
-deb http://ftp.cn.debian.org/debian/ sid main non-free contrib non-free-firmware
-deb-src http://ftp.cn.debian.org/debian/ sid main non-free contrib non-free-firmware
+deb [signed-by=/usr/share/keyrings/debian-archive-keyring.gpg] http://ftp.cn.debian.org/debian/ sid main non-free contrib non-free-firmware
+deb-src [signed-by=/usr/share/keyrings/debian-archive-keyring.gpg] http://ftp.cn.debian.org/debian/ sid main non-free contrib non-free-firmware
 
 # deb http://ftp.cn.debian.org/debian/ bookworm main non-free contrib non-free-firmware
 deb [arch=amd64 signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian bookworm stable

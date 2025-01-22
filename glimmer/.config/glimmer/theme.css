@@ -1,22 +1,48 @@
 @keyframes example {
-  0% {
-    border-color: #81a1c1;
-    border-width: 0px;
+  10% {
+    border-color: #f4dbd6;
+    border-width: 2px;
   }
-  5% {
+  20% {
+    border-width: 3px;
+    /* border-top-width: 5px; */
+    border-color: #f0c6c6;
+  }
+  30% {
+    border-width: 4px;
+    /* border-top-width: 5px; */
+    border-color: #f5bde6;
+  }
+  40% {
     border-width: 5px;
     /* border-top-width: 5px; */
-    border-color: #81a1c1;
+    border-color: #c6a0f6;
+  }
+  50% {
+    border-width: 6px;
+    /* border-top-width: 5px; */
+    border-color: #ed8796;
+  }
+  60% {
+    border-width: 6px;
+    /* border-top-width: 5px; */
+    border-color: #ee99a0;
+  }
+  70% {
+    border-width: 5px;
+    /* border-top-width: 5px; */
+    border-color: #f5a97f;
+  }
+  80% {
+    border-width: 4px;
+    /* border-top-width: 5px; */
+    border-color: #eed49f;
   }
   90% {
+    border-width: 3px;
     /* border-top-width: 5px; */
-    border-color: #81a1c1;
+    border-color: #f4dbd6;
   }
-  95% {
-    /* border-top-width: 5px; */
-    border-color: #81a1c1;
-  }
-
   100% {
     border-color: transparent;
   }
