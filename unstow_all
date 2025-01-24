@@ -1,91 +1,98 @@
 #!/usr/bin/env bash
-# uninstall my dotfiles.
+
+# Script to uninstall all dotfiles configurations.
 
 STOW="/usr/bin/stow"
-PWD=$(basename $(pwd))
-STOW_FLAG="--no-fold --restow"
+STOW_FLAGS="--no-fold --restow -D"
+DOTFILES_DIR="dotfiles"
+PWD=$(basename "$(pwd)")
 
+# Color definitions
+RED="\033[31m"
+GREEN="\033[32m"
+YELLOW="\033[33m"
+BLUE="\033[34m"
+RESET="\033[0m"
+
+# Check if the script is run as root
 function check_root() {
-    if [ $(whoami) == "root" ]
-    then
-        echo -e "\033[31m error \033[0m: can't run this script in root mode."
+    if [ "$(id -u)" -eq 0 ]; then
+        echo -e "${RED}Error:${RESET} This script should not be run as root."
         exit 1
     fi
 }
 
+# Check if a required program is installed
 function check_prog() {
-    if ! hash "$1" > /dev/null 2>&1; then
-        echo -e "Command not found:\033[31m $1\033[0m, Aborting"
+    if ! command -v "$1" &> /dev/null; then
+        echo -e "${RED}Error:${RESET} Command not found: ${YELLOW}$1${RESET}. Aborting."
         exit 1
     fi
 }
 
+# Ensure the script is executed in the correct directory
 function check_path() {
-    if [ $PWD != "dotfiles" ]
-    then
-        echo -e "\033[31m error \033[0m: must be run in $HOME/dotfiles."
+    if [ "$PWD" != "$DOTFILES_DIR" ]; then
+        echo -e "${RED}Error:${RESET} Please run this script from the ${YELLOW}~/dotfiles${RESET} directory."
         exit 1
     fi
 }
 
-function uninstall_home_dotfiles() {
-    HOME_DIR=$(find ./ -maxdepth 1 -type d -not -name ".*"|cut -d '/' -f 2|grep -v '^etc'|sort)
-    echo -e "\033[34m$HOME:uninstall...\033[0m"
-    for DOTFILES in $HOME_DIR
-    do
-        $STOW $STOW_FLAG -D --target "$HOME" $DOTFILES
-        if [ $? -eq 0 ]
-        then
-            echo -e "$DOTFILES \033[33m has been deleted. \033[0m"
+# Generic function to unstow a specific directory
+function uninstall_dir() {
+    local dir=$1
+    local target=$2
+    local name=$3
+
+    if [ -d "$dir" ]; then
+        echo -e "${BLUE}Unstowing $name configurations...${RESET}"
+        pushd "$dir" > /dev/null
+        sudo $STOW $STOW_FLAGS --target "$target" * &> /dev/null
+
+        if [ $? -eq 0 ]; then
+            local dirs
+            dirs=$(find . -maxdepth 1 -type d | cut -d '/' -f 2 | tail -n +2)
+            for subdir in $dirs; do
+                echo -e "${YELLOW}✔ ${subdir} has been unstowed successfully.${RESET}"
+            done
         else
-            echo -e "\033[31m Error on delete $DOTFILES. \033[0m"
+            echo -e "${RED}✖ Error unstowing $name configurations.${RESET}"
+            exit 1
+        fi
+        popd > /dev/null
+    else
+        echo -e "${YELLOW}Warning:${RESET} No $name configurations found. Skipping."
+    fi
+    echo
+}
+
+# Uninstall home directory configurations
+function uninstall_home_dotfiles() {
+    local home_dirs
+    home_dirs=$(find ./ -maxdepth 1 -type d -not -name ".*" -not -name "etc" -not -name "usr" | cut -d '/' -f 2 | sort)
+    
+    echo -e "${BLUE}Unstowing home configurations...${RESET}"
+    for dir in $home_dirs; do
+        $STOW $STOW_FLAGS --target "$HOME" "$dir" &> /dev/null
+        if [ $? -eq 0 ]; then
+            echo -e "${YELLOW}✔ ${dir} has been unstowed successfully.${RESET}"
+        else
+            echo -e "${RED}✖ Error unstowing ${dir}.${RESET}"
             exit 1
         fi
     done
-    echo -e ""
+    echo
 }
 
-function uninstall_etc_dotfiles() {
-    ETC_DIR=$(find ./etc/ -maxdepth 1 -type d |cut -d '/' -f 3|sed "1d")
-    echo -e "\033[34m/etc:uninstall...\033[0m"
-    pushd etc > /dev/null
-    sudo $STOW $STOW_FLAG -D --target /etc * >/dev/null 2>&1
-
-    if [ $? -eq 0 ]
-    then
-        for DOTFILES in $ETC_DIR
-        do
-            echo -e "$DOTFILES \033[33m has been deleted. \033[0m"
-        done
-    else
-        echo -e "\033[31m Error on delete etc. \033[0m"
-    fi
-    popd > /dev/null
-    echo -e ""
+# Uninstall etc and usr configurations
+function uninstall_system_dotfiles() {
+    uninstall_dir "./etc" "/etc" "etc"
+    uninstall_dir "./usr" "/usr" "usr"
 }
 
-function uninstall_usr_dotfiles() {
-    USR_DIR=$(find ./usr/ -maxdepth 1 -type d |cut -d '/' -f 3|sed "1d")
-    echo -e "\033[34m/usr:uninstall...\033[0m"
-    pushd usr > /dev/null
-    sudo $STOW $STOW_FLAG -D --target /usr * >/dev/null 2>&1
-
-    if [ $? -eq 0 ]
-    then
-        for DOTFILES in $USR_DIR
-        do
-            echo -e "$DOTFILES \033[33m has been deleted. \033[0m"
-        done
-    else
-        echo -e "\033[31m Error on delete usr. \033[0m"
-    fi
-    popd > /dev/null
-    echo -e ""
-}
-
+# Main logic
 check_root
 check_prog stow
 check_path
 uninstall_home_dotfiles
-uninstall_etc_dotfiles
-uninstall_usr_dotfiles
+uninstall_system_dotfiles

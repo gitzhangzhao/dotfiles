@@ -1,97 +1,103 @@
 #!/usr/bin/env bash
-# install my dotfiles.
 
-PWD=$(basename $(pwd))
-ARGC=$#
+# Script to stow dotfiles configurations using GNU Stow.
+
 STOW="/usr/bin/stow"
-STOW_FLAG="--no-fold --restow"
+STOW_FLAGS="--no-fold --restow"
+DOTFILES_DIR="dotfiles"
+PWD=$(basename "$(pwd)")
+ARGC=$#
+APP_NAME=$1
 
+# Color definitions for output readability
+RED="\033[31m"
+GREEN="\033[32m"
+YELLOW="\033[33m"
+RESET="\033[0m"
+
+# Function to check if the script is run as root
 function check_root() {
-    if [ $(whoami) == "root" ]
-    then
-        echo -e "\033[31merror \033[0m: can't run this script in root mode."
+    if [ "$(id -u)" -eq 0 ]; then
+        echo -e "${RED}✗${RESET} This script should not be run as root."
         exit 1
     fi
 }
 
+# Function to check if a required program is installed
 function check_prog() {
-    if ! hash "$1" > /dev/null 2>&1; then
-        echo -e "Command not found:\033[31m $1\033[0m, Aborting"
+    if ! command -v "$1" >/dev/null 2>&1; then
+        echo -e "${RED}✗${RESET} Command not found: ${YELLOW}$1${RESET}. Aborting."
         exit 1
     fi
 }
 
+# Function to ensure the script is executed from the correct directory
 function check_path() {
-    if [ $PWD != "dotfiles" ]
-    then
-        echo -e "\033[31merror \033[0m: must be run in $HOME/dotfiles."
+    if [ "$PWD" != "$DOTFILES_DIR" ]; then
+        echo -e "${RED}✗${RESET} Please run this script from the ${YELLOW}~/dotfiles${RESET} directory."
         exit 1
     fi
 }
 
+# Function to print usage instructions
 function print_help() {
-    echo -e "stow: \033[31mfatal error \033[0m"
-    echo "usage: ./stow.sh app."
+    echo -e "${YELLOW}Usage:${RESET} ./stow.sh <app>"
+    echo -e "  ${YELLOW}<app>${RESET}  Name of the dotfile configuration to stow."
 }
 
+# Function to validate the provided arguments
 function check_argv() {
-    if [ $ARGC != 1 ]
-    then
+    if [ "$ARGC" -ne 1 ]; then
         print_help
-        echo wrong number of parameter.
+        echo -e "${RED}✗${RESET} Invalid number of arguments."
         exit 1
-    elif [[ ($1 == "-h") || ($1 == "--help") ]]
-    then
-        echo "usage: ./stow.sh app."
-        exit 1
+    fi
+
+    if [[ "$APP_NAME" == "-h" || "$APP_NAME" == "--help" ]]; then
+        print_help
+        exit 0
     fi
 }
 
-function stow() {
-    HOME_DIR=$(find ./ -maxdepth 1 -type d -not -name ".*"|cut -d '/' -f 2|grep -v '^etc' |grep -v '^usr'|sort)
-    ETC_DIR=$(find ./etc/ -maxdepth 1 -type d |cut -d '/' -f 3|sed "1d")
-    USR_DIR=$(find ./usr/ -maxdepth 1 -type d |cut -d '/' -f 3|sed "1d")
+# Function to stow a specific dotfiles configuration
+function stow_config() {
+    local HOME_DIRS
+    local ETC_DIRS
+    local USR_DIRS
 
-    if [[ "$HOME_DIR" =~ "$1" ]]
-    then
-        $STOW $STOW_FLAG --target "$HOME" $1 >/dev/null 2>&1
-        if [ $? -ne 0 ]
-        then 
-            echo -e "\033[31merror:\033[0m $1 is not in here."
-            exit 1
-        fi
+    # Discover directories in home, etc, and usr
+    HOME_DIRS=$(find ./ -maxdepth 1 -type d -not -name ".*" -not -name "etc" -not -name "usr" | cut -d '/' -f 2 | sort)
+    ETC_DIRS=$(find ./etc/ -maxdepth 1 -type d | cut -d '/' -f 3 | sed "1d")
+    USR_DIRS=$(find ./usr/ -maxdepth 1 -type d | cut -d '/' -f 3 | sed "1d")
 
-    elif [[ "$ETC_DIR" =~ "$1" ]]
-    then
-        pushd etc > /dev/null
-        sudo $STOW $STOW_FLAG --target /etc $1 >/dev/null 2>&1
-        if [ $? -ne 0 ]
-        then 
-            echo -e "\033[31merror:\033[0m $1 is not in here."
-            exit 1
-        fi
-        popd > /dev/null
-
-    elif [[ "$USR_DIR" =~ "$1" ]]
-    then
-        pushd usr > /dev/null
-        sudo $STOW $STOW_FLAG --target /usr $1 >/dev/null 2>&1
-        if [ $? -ne 0 ]
-        then 
-            echo -e "\033[31merror:\033[0m $1 is not in here."
-            exit 1
-        fi
-        popd > /dev/null
-
+    # Try to stow the app in the appropriate directory
+    if echo "$HOME_DIRS" | grep -q "^$APP_NAME\$"; then
+        $STOW $STOW_FLAGS --target "$HOME" "$APP_NAME" >/dev/null 2>&1
+    elif echo "$ETC_DIRS" | grep -q "^$APP_NAME\$"; then
+        pushd etc >/dev/null
+        sudo $STOW $STOW_FLAGS --target /etc "$APP_NAME" >/dev/null 2>&1
+        popd >/dev/null
+    elif echo "$USR_DIRS" | grep -q "^$APP_NAME\$"; then
+        pushd usr >/dev/null
+        sudo $STOW $STOW_FLAGS --target /usr "$APP_NAME" >/dev/null 2>&1
+        popd >/dev/null
     else
-        echo -e "\033[31merror:\033[0m $1 is not in here."
+        echo -e "${RED}✗${RESET} No matching configuration found for ${YELLOW}$APP_NAME${RESET}."
         exit 1
     fi
-    echo -e "$1\033[32m stowed.\033[0m"
+
+    # Check the result of the stow operation
+    if [ $? -eq 0 ]; then
+        echo -e "${GREEN}✔  $APP_NAME has been successfully stowed."
+    else
+        echo -e "${RED}Error: Failed to stow $APP_NAME."
+        exit 1
+    fi
 }
 
+# Main script execution
 check_root
 check_prog stow
 check_path
-check_argv $1
-stow $1
+check_argv
+stow_config
