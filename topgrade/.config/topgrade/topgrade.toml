@@ -1,2 +1,5 @@
 [misc]
 disable = ["containers", "git_repos"]
+
+[commands]
+"oh-my-zsh plugins" = "s_ohmyzsh_plugins update"

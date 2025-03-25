@@ -13,8 +13,9 @@ allow-hotplug wlp7s0
 iface lo inet loopback
 
 # external network
-# auto enxac7deb65d756
-# iface enxac7deb65d756 inet dhcp
+auto enxac7deb65d756
+iface enxac7deb65d756 inet dhcp
+
 
 # iei internal network
 # auto enp6s0
