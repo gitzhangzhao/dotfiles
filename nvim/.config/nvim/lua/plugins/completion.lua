@@ -2,7 +2,7 @@ return {
 
     {
         'neoclide/coc.nvim',
-        event = {'BufReadPost', 'BufAdd', 'BufNewFile' },
+        -- event = {'BufReadPost', 'BufAdd', 'BufNewFile' },
         branch = 'release',
         -- build = 'yarn install --frozen-lockfile',
         dependencies = {
