@@ -244,9 +244,8 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ to
 ##############################################################################
 # boot
 exec --no-startup-id xrandr --output eDP-1 --off --output HDMI-1 --primary --mode 2560x1440 --pos 0x0 --rotate normal --output DP-1 --off
-exec --no-startup-id sleep 1
-exec --no-startup-id feh --bg-fill /home/zhangzhao/.local/wallpaper/wallpaper.jpg
-exec --no-startup-id /home/zhangzhao/.local/bin/picom
+exec --no-startup-id sleep 0.5 && /home/zhangzhao/.local/bin/picom
+exec --no-startup-id sleep 1 && feh --bg-fill /home/zhangzhao/.local/wallpaper/wallpaper.jpg
 exec --no-startup-id xset dpms 0 0 0
 exec --no-startup-id xset s noexpose
 exec --no-startup-id xset s 0 0
@@ -255,7 +254,7 @@ exec --no-startup-id clash-verge
 exec_always --no-startup-id /home/zhangzhao/.local/bin/glimmer --styles=/home/zhangzhao/.config/glimmer/theme.css
 exec_always --no-startup-id $HOME/.local/bin/alternating_layouts
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-exec_always --no-startup-id xautolock -time 120 -locker "/home/zhangzhao/.local/bin/betterlockscreen -l dim --off 3800"
+exec_always --no-startup-id xautolock -time 180 -locker "/home/zhangzhao/.local/bin/betterlockscreen -l dim --off 3800"
 exec_always --no-startup-id lsyncd $HOME/.config/lsyncd/lsyncd.conf
 # exec --no-startup-id sleep 1; setxkbmap -option caps:escape
 # exec --no-startup-id sleep 2; setxkbmap -option caps:escape
