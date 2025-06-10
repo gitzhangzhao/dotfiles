@@ -126,6 +126,10 @@ export SAVEHIST=500000
 export LD_LIBRARY_PATH=$HOME/.local/lib/mylib:$LD_LIBRARY_PATH
 export PATH=$HOME/dotfiles:$HOME/.cargo/bin:$HOME/.local/bin:$HOME/.vim/plugged/fzf/bin:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:/usr/local/cuda-11.8/bin:$PATH
 export LD_LIBRARY_PATH=/usr/local/cuda-11.8/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+export RUSTUP_DIST_SERVER=https://mirrors.ustc.edu.cn/rust-static
+export RUSTUP_UPDATE_ROOT=https://mirrors.ustc.edu.cn/rust-static/rustup
+
+
 
 # aliases
 alias ls='lsd'
@@ -201,9 +205,9 @@ function unproxy(){
 }
 
 function proxy(){
-    export http_proxy="http://user:password@127.0.0.1:20171"
-    export https_proxy="https://user:password@127.0.0.1:20171"
-    export all_proxy="socks5://user:password@127.0.0.1:20170"
+    export http_proxy="http://user:password@127.0.0.1:7897"
+    export https_proxy="https://user:password@127.0.0.1:7897"
+    export all_proxy="socks5://user:password@127.0.0.1:7897"
     echo -e "\033[32mHTTP Proxy on\033[0m"
 }
 

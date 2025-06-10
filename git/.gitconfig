@@ -2,9 +2,9 @@
 	name = gitzhangzhao
 	email = gitzhangzhao@gmail.com
 [https]
-    proxy = socks5://localhost:20170
+    proxy = socks5://localhost:7897
 [http]
-    proxy = 127.0.0.1:20172
+    proxy = 127.0.0.1:7897
 [core]
     pager = delta
 [interactive]
