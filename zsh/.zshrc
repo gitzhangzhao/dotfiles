@@ -205,9 +205,9 @@ function unproxy(){
 }
 
 function proxy(){
-    export http_proxy="http://user:password@127.0.0.1:7897"
-    export https_proxy="https://user:password@127.0.0.1:7897"
-    export all_proxy="socks5://user:password@127.0.0.1:7897"
+    export http_proxy="http://127.0.0.1:7897"
+    export https_proxy="https://127.0.0.1:7897"
+    export all_proxy="socks5://127.0.0.1:7897"
     echo -e "\033[32mHTTP Proxy on\033[0m"
 }
 
