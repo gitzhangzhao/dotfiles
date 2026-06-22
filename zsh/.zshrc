@@ -22,10 +22,10 @@ export ZSH="/home/zhangzhao/.oh-my-zsh"
 # HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
+DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to automatically update without prompting.
-# DISABLE_UPDATE_PROMPT="true"
+DISABLE_UPDATE_PROMPT="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
 # export UPDATE_ZSH_DAYS=13
@@ -145,7 +145,7 @@ alias bat='bat --italic-text always'
 alias hibernate='systemctl hibernate'
 alias suspend='systemctl suspend'
 alias du='dust -r'
-alias df='duf'
+alias df='dysk'
 alias rg='rg --hidden -L'
 alias diff='difft'
 alias al='apt list --upgradable'
@@ -168,6 +168,7 @@ alias scp='scp -C -p -r'
 alias vim='nvim'
 alias cvim='cd ~/dotfiles/nvim/.config/nvim/'
 alias ssh='TERM=xterm-256color ssh -X'
+alias understand='[[ ! -e /run/netns/nonet ]] && sudo ip netns add nonet; sudo ip netns exec nonet sudo -u $USER /home/zhangzhao/Software/Understand-7.2.1245-Linux-64bit/bin/linux64/understand'
 # alias pip3='pip3 --break-system-packages'
 alias f='fx'
 alias pdf='FoxitReader'

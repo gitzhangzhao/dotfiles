@@ -72,43 +72,43 @@ return {
         end
     },
 
-        {
-            'nvim-treesitter/nvim-treesitter',
-            lazy = false,
-            build = ':TSUpdate',
-        config = function()
-            require'nvim-treesitter.configs'.setup {
-                ensure_installed = {"vim", "lua", "c", "make", "markdown", "json", "diff", "cpp", "bash", "verilog", "latex" },
-                highlight = {
-                    enable = true,
-                    additional_vim_regex_highlighting = false
-                },
-                incremental_selection = {
-                    enable = true,
-                    keymaps = {
-                        init_selection = '<CR>',
-                        node_incremental = '<CR>',
-                        node_decremental = '<BS>',
-                        scope_incremental = '<TAB>',
-                    }
-                },
-                matchup = {
-                    enable = true
-                },
-                textobjects = {
-                    swap = {
-                        enable = true,
-                        swap_next = {
-                            ["cx"] = "@parameter.inner",
-                        },
-                        swap_previous = {
-                            ["cX"] = "@parameter.inner",
-                        },
-                    },
-                },
-            }
-        end
-    },
+    --     {
+    --         'nvim-treesitter/nvim-treesitter',
+    --         lazy = false,
+    --         build = ':TSUpdate',
+    --     config = function()
+    --         require'nvim-treesitter.configs'.setup {
+    --             ensure_installed = {"vim", "lua", "c", "make", "markdown", "json", "diff", "cpp", "bash", "verilog", "latex" },
+    --             highlight = {
+    --                 enable = true,
+    --                 additional_vim_regex_highlighting = false
+    --             },
+    --             incremental_selection = {
+    --                 enable = true,
+    --                 keymaps = {
+    --                     init_selection = '<CR>',
+    --                     node_incremental = '<CR>',
+    --                     node_decremental = '<BS>',
+    --                     scope_incremental = '<TAB>',
+    --                 }
+    --             },
+    --             matchup = {
+    --                 enable = true
+    --             },
+    --             textobjects = {
+    --                 swap = {
+    --                     enable = true,
+    --                     swap_next = {
+    --                         ["cx"] = "@parameter.inner",
+    --                     },
+    --                     swap_previous = {
+    --                         ["cX"] = "@parameter.inner",
+    --                     },
+    --                 },
+    --             },
+    --         }
+    --     end
+    -- },
 
     {
         'andymass/vim-matchup',

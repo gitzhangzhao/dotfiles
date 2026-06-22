@@ -24,7 +24,7 @@ iface lo inet loopback
 
 # auto wlp7s0
 # iface wlp7s0 inet dhcp
-#     wpa-ssid iPhone
+#     wpa-ssid "昭的iPhone Air"
 #     wpa-psk zz950814
 
 # auto wlp7s0

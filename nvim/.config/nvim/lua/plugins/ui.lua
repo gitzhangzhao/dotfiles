@@ -292,7 +292,7 @@ return {
 
         {
             -- "feline-nvim/feline.nvim",
-            "freddiehaddad/feline.nvim",
+            "famiu/feline.nvim",
             event = 'BufReadPre',
             dependencies = 'nvim-tree/nvim-web-devicons',
             config = function()

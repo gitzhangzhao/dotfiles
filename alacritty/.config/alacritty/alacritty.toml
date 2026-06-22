@@ -60,19 +60,19 @@ size = 15
 
 [font.bold]
 # family = "CaskaydiaCove Nerd Font"
-family = "Maple Mono"
+family = "Liga SFMono Nerd Font"
 style = "Bold"
 
 [font.bold_italic]
-family = "Maple Mono"
+family = "Liga SFMono Nerd Font"
 style = "Bold Italic"
 
 [font.italic]
-family = "Maple Mono"
+family = "Liga SFMono Nerd Font"
 style = "Medium Italic"
 
 [font.normal]
-family = "Maple Mono"
+family = "Liga SFMono Nerd Font"
 style = "Medium"
 
 [[keyboard.bindings]]

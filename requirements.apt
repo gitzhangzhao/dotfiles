@@ -14,7 +14,7 @@ sudo apt install \
     rsync ssh zip unzip gdb \
     wget curl lsof clangd clang-format git \
     sshfs gpg jq cmake systemd-timesyncd \
-    ufw dos2unix duf file \
+    ufw dos2unix file \
     lshw build-essential \
     neofetch graphviz netcat-openbsd \
     man-db manpages-zh imagemagick \
